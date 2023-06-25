@@ -35,8 +35,6 @@
         left: 0;
         bottom: 0;
         width: 100%;
-        background-color: #343a40;
-        color: #ffffff;
         text-align: center;
         padding: 10px 0;
       }
@@ -47,7 +45,7 @@
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <div class="container">
-        <a class="navbar-brand" href="#">ZyCromerZ Kernels</a>
+        <a class="navbar-brand" href="#" id="theme-changes" data-theme="">ZyCromerZ Kernels</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -144,6 +142,54 @@
             $("#xobod-kernel").html('X01BD / Asus Zenforne Max Pro M2')
           }
         }
+        
+        const prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)");
+        if(prefersDarkScheme.matches){
+          $(".navbar").addClass("navbar-dark");
+          $(".navbar").addClass("bg-dark");
+          $(".navbar").removeClass("navbar-light");
+          $(".navbar").removeClass("bg-light");
+          $("footer").addClass("navbar-dark");
+          $("footer").addClass("bg-dark");
+          $("footer").removeClass("navbar-light");
+          $("footer").removeClass("bg-light");
+          $("#theme-changes").data("theme","dark")
+        } else {
+          $("#theme-changes").data("theme","light")
+        }
+        $('#theme-changes').click(function() {
+          // Your code to execute when the button is clicked
+          var themes = $(this).data("theme");
+          if (themes == 'light') {
+            // Dark mode is preferred
+            // Perform actions for dark mode
+            $(".navbar").addClass("navbar-dark");
+            $(".navbar").addClass("bg-dark");
+            $(".navbar").removeClass("navbar-light");
+            $(".navbar").removeClass("bg-light");
+            $("footer").addClass("navbar-dark");
+            $("footer").addClass("bg-dark");
+            $("footer").removeClass("navbar-light");
+            $("footer").removeClass("bg-light");
+            $("#theme-changes").data("theme","dark")
+            $('body').css('background-color', '#1f1f1f');
+            $('body').css('color', '#ffffff');
+          } else {
+            // Light mode is preferred
+            // Perform actions for light mode
+            $(".navbar").removeClass("navbar-dark");
+            $(".navbar").removeClass("bg-dark");
+            $(".navbar").addClass("navbar-light");
+            $(".navbar").addClass("bg-light");
+            $("footer").removeClass("navbar-dark");
+            $("footer").removeClass("bg-dark");
+            $("footer").addClass("navbar-light");
+            $("footer").addClass("bg-light");
+            $("#theme-changes").data("theme","light")
+            $('body').css('background-color', '#ffffff');
+            $('body').css('color', '#000000');
+          }
+        });
         // Menangkap saat dropdown dipilih
         $(".dropdown-item").click(function(){
           // Mengambil data produk
@@ -152,54 +198,54 @@
           
           // Mengubah teks dropdown
           $(this).closest(".dropdown").find(".nav-link").text($(this).text());
-          
+          var text = 'U can download it from here: '
           // Mengubah isi konten sesuai produk
           if(produk == "vayu-1"){
-            $("#konten").html("<h1>Vayu: up to 4.14.280</h1><p>u can download it from here: <a href='https://www.pling.com/p/1525659/'>Click Here</a></p>");
+            $("#konten").html("<h1>Vayu: up to 4.14.280</h1><p>"+text+"<a href='https://www.pling.com/p/1525659/'>Click Here</a></p>");
             changed = true
             resetValue('vayu')
           } else if(produk == "vayu-2"){
-            $("#konten").html("<h1>Vayu: 4.14.281 - 4.14.289</h1><p>u can download it from here: <a href='https://www.pling.com/p/1806346/'>Click Here</a></p>");
+            $("#konten").html("<h1>Vayu: 4.14.281 - 4.14.289</h1><p>"+text+"<a href='https://www.pling.com/p/1806346/'>Click Here</a></p>");
             changed = true
             resetValue('vayu')
           } else if(produk == "vayu-3"){
-            $("#konten").html("<h1>Vayu: 4.14.300 - Latest</h1><p>u can download it from here: <a href='https://www.pling.com/p/1951279/'>Click Here</a></p>");
+            $("#konten").html("<h1>Vayu: 4.14.300 - Latest</h1><p>"+text+"<a href='https://www.pling.com/p/1951279/'>Click Here</a></p>");
             changed = true
             resetValue('vayu')
           } else if(produk == "bego-1"){
-            $("#konten").html("<h1>Begonia: up to 4.14.280</h1><p>u can download it from here: <a href='https://www.pling.com/p/1406315/'>Click Here</a></p>");
+            $("#konten").html("<h1>Begonia: up to 4.14.280</h1><p>"+text+"<a href='https://www.pling.com/p/1406315/'>Click Here</a></p>");
             changed = true
             resetValue('bego')
           } else if(produk == "bego-2"){
-            $("#konten").html("<h1>Begonia: 4.14.281 - 4.14.285</h1><p>u can download it from here: <a href='https://www.pling.com/p/1806348/'>Click Here</a></p>");
+            $("#konten").html("<h1>Begonia: 4.14.281 - 4.14.285</h1><p>"+text+"<a href='https://www.pling.com/p/1806348/'>Click Here</a></p>");
             changed = true
             resetValue('bego')
           } else if(produk == "bego-3"){
-            $("#konten").html("<h1>Begonia: 4.14.287 - 4.14.292</h1><p>u can download it from here: <a href='https://www.pling.com/p/1850193/'>Click Here</a></p>");
+            $("#konten").html("<h1>Begonia: 4.14.287 - 4.14.292</h1><p>"+text+"<a href='https://www.pling.com/p/1850193/'>Click Here</a></p>");
             changed = true
             resetValue('bego')
           } else if(produk == "bego-4"){
-            $("#konten").html("<h1>Begonia: 4.14.295 - Latest</h1><p>u can download it from here: <a href='https://www.pling.com/p/1914616/'>Click Here</a></p>");
+            $("#konten").html("<h1>Begonia: 4.14.295 - Latest</h1><p>"+text+"<a href='https://www.pling.com/p/1914616/'>Click Here</a></p>");
             changed = true
             resetValue('bego')
           } else if(produk == "letoy-1"){
-            $("#konten").html("<h1>Merlin / Redmi Note 9 || Lancelot / Redmi 9: up to 4.14.280</h1><p>u can download it from here: <a href='https://www.pling.com/p/1482735/'>Click Here</a></p>");
+            $("#konten").html("<h1>Merlin / Redmi Note 9 || Lancelot / Redmi 9: up to 4.14.280</h1><p>"+text+"<a href='https://www.pling.com/p/1482735/'>Click Here</a></p>");
             changed = true
             resetValue('letoy')
           } else if(produk == "letoy-2"){
-            $("#konten").html("<h1>Merlin / Redmi Note 9 || Lancelot / Redmi 9: 4.14.281 - 4.14.285</h1><p>u can download it from here: <a href='https://www.pling.com/p/1806349/'>Click Here</a></p>");
+            $("#konten").html("<h1>Merlin / Redmi Note 9 || Lancelot / Redmi 9: 4.14.281 - 4.14.285</h1><p>"+text+"<a href='https://www.pling.com/p/1806349/'>Click Here</a></p>");
             changed = true
             resetValue('letoy')
           } else if(produk == "letoy-3"){
-            $("#konten").html("<h1>Merlin / Redmi Note 9 || Lancelot / Redmi 9: 4.14.287 - 4.14.292</h1><p>u can download it from here: <a href='https://www.pling.com/p/1850294/'>Click Here</a></p>");
+            $("#konten").html("<h1>Merlin / Redmi Note 9 || Lancelot / Redmi 9: 4.14.287 - 4.14.292</h1><p>"+text+"<a href='https://www.pling.com/p/1850294/'>Click Here</a></p>");
             changed = true
             resetValue('letoy')
           } else if(produk == "letoy-4"){
-            $("#konten").html("<h1>Merlin / Redmi Note 9 || Lancelot / Redmi 9: 4.14.295 - Latest</h1><p>u can download it from here: <a href='https://www.pling.com/p/1914619/'>Click Here</a></p>");
+            $("#konten").html("<h1>Merlin / Redmi Note 9 || Lancelot / Redmi 9: 4.14.295 - Latest</h1><p>"+text+"<a href='https://www.pling.com/p/1914619/'>Click Here</a></p>");
             changed = true
             resetValue('letoy')
           } else if(produk == "xobod-1"){
-            $("#konten").html("<h1>X01BD: old to latest</h1><p>u can download it from here: <a href='https://www.pling.com/p/1345927/'>Click Here</a></p>");
+            $("#konten").html("<h1>X01BD: old to latest</h1><p>"+text+"<a href='https://www.pling.com/p/1345927/'>Click Here</a></p>");
             changed = true
             resetValue('xobod')
           }
@@ -214,21 +260,6 @@
           }
         });
       });
-    </script>
-    
-    <!-- Script untuk Dark Mode -->
-    <script>
-      const prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)");
-      if(prefersDarkScheme.matches){
-        $(".navbar").addClass("navbar-dark");
-        $(".navbar").addClass("bg-dark");
-        $(".navbar").removeClass("navbar-light");
-        $(".navbar").removeClass("bg-light");
-        $("footer").addClass("navbar-dark");
-        $("footer").addClass("bg-dark");
-        $("footer").removeClass("navbar-light");
-        $("footer").removeClass("bg-light");
-      }
     </script>
   </body>
 </html>
