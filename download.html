@@ -85,6 +85,14 @@
                 <li><a class="dropdown-item" href="#" data-produk="letoy-4">Merlin / Redmi Note 9 || Lancelot / Redmi 9: 4.14.295 - Latest</a></li>
               </ul>
             </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="xobod-kernel" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                X01BD / Asus Zenforne Max Pro M2
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="xobod-kernel">
+                <li><a class="dropdown-item" href="#" data-produk="xobod-1">X01BD / Asus Zenforne Max Pro M2: old to latest</a></li>
+              </ul>
+            </li>
           </ul>
         </div>
       </div>
@@ -97,6 +105,14 @@
         <p>Select Device for kernel links from menu above</p>
       </div>
       <div id="konten">
+      </div>
+      <div id="konten-det" style="display: none;">
+        <h2>link kernel missing?</h2>
+        <div>check this one : <a href="https://t.me/NeutrinoCh/299">https://t.me/NeutrinoCh/299</a></div>
+      </div>
+      <div>
+        <h3>total views</h3>
+        <img src="https://count.getloli.com/get/@zyc-dl-kernel?theme=moebooru" alt=":zyc-dl-kernel" />
       </div>
     </div>
     
@@ -114,6 +130,20 @@
     <!-- Script untuk mengubah isi konten -->
     <script>
       $(document).ready(function(){
+        function resetValue(strnya){
+          if(strnya != "vayu"){
+            $("#vayu-kernel").html('Vayu / Poco X3 Pro')
+          }
+          if(strnya != "bego"){
+            $("#bego-kernel").html('Begonia / Redmi Note 8 pro')
+          }
+          if(strnya != "letoy"){
+            $("#letoy-kernel").html('Merlin / Redmi Note 9 || Lancelot / Redmi 9')
+          }
+          if(strnya != "xobod"){
+            $("#xobod-kernel").html('X01BD / Asus Zenforne Max Pro M2')
+          }
+        }
         // Menangkap saat dropdown dipilih
         $(".dropdown-item").click(function(){
           // Mengambil data produk
@@ -127,46 +157,60 @@
           if(produk == "vayu-1"){
             $("#konten").html("<h1>Vayu: up to 4.14.280</h1><p>u can download it from here: <a href='https://www.pling.com/p/1525659/'>Click Here</a></p>");
             changed = true
+            resetValue('vayu')
           } else if(produk == "vayu-2"){
             $("#konten").html("<h1>Vayu: 4.14.281 - 4.14.289</h1><p>u can download it from here: <a href='https://www.pling.com/p/1806346/'>Click Here</a></p>");
             changed = true
+            resetValue('vayu')
           } else if(produk == "vayu-3"){
             $("#konten").html("<h1>Vayu: 4.14.300 - Latest</h1><p>u can download it from here: <a href='https://www.pling.com/p/1951279/'>Click Here</a></p>");
             changed = true
+            resetValue('vayu')
           } else if(produk == "bego-1"){
             $("#konten").html("<h1>Begonia: up to 4.14.280</h1><p>u can download it from here: <a href='https://www.pling.com/p/1406315/'>Click Here</a></p>");
             changed = true
+            resetValue('bego')
           } else if(produk == "bego-2"){
             $("#konten").html("<h1>Begonia: 4.14.281 - 4.14.285</h1><p>u can download it from here: <a href='https://www.pling.com/p/1806348/'>Click Here</a></p>");
             changed = true
+            resetValue('bego')
           } else if(produk == "bego-3"){
             $("#konten").html("<h1>Begonia: 4.14.287 - 4.14.292</h1><p>u can download it from here: <a href='https://www.pling.com/p/1850193/'>Click Here</a></p>");
             changed = true
+            resetValue('bego')
           } else if(produk == "bego-4"){
             $("#konten").html("<h1>Begonia: 4.14.295 - Latest</h1><p>u can download it from here: <a href='https://www.pling.com/p/1914616/'>Click Here</a></p>");
             changed = true
+            resetValue('bego')
           } else if(produk == "letoy-1"){
             $("#konten").html("<h1>Merlin / Redmi Note 9 || Lancelot / Redmi 9: up to 4.14.280</h1><p>u can download it from here: <a href='https://www.pling.com/p/1482735/'>Click Here</a></p>");
             changed = true
+            resetValue('letoy')
           } else if(produk == "letoy-2"){
             $("#konten").html("<h1>Merlin / Redmi Note 9 || Lancelot / Redmi 9: 4.14.281 - 4.14.285</h1><p>u can download it from here: <a href='https://www.pling.com/p/1806349/'>Click Here</a></p>");
             changed = true
+            resetValue('letoy')
           } else if(produk == "letoy-3"){
             $("#konten").html("<h1>Merlin / Redmi Note 9 || Lancelot / Redmi 9: 4.14.287 - 4.14.292</h1><p>u can download it from here: <a href='https://www.pling.com/p/1850294/'>Click Here</a></p>");
             changed = true
+            resetValue('letoy')
           } else if(produk == "letoy-4"){
             $("#konten").html("<h1>Merlin / Redmi Note 9 || Lancelot / Redmi 9: 4.14.295 - Latest</h1><p>u can download it from here: <a href='https://www.pling.com/p/1914619/'>Click Here</a></p>");
             changed = true
+            resetValue('letoy')
           } else if(produk == "xobod-1"){
             $("#konten").html("<h1>X01BD: old to latest</h1><p>u can download it from here: <a href='https://www.pling.com/p/1345927/'>Click Here</a></p>");
             changed = true
+            resetValue('xobod')
           }
           if (changed){
             $("#konten-def").hide()
             $("#konten").show()
+            $("#konten-det").show()
           } else {
             $("#konten-def").show()
             $("#konten").hide()
+            $("#konten-det").hide()
           }
         });
       });
